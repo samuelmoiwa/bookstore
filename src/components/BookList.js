@@ -1,18 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Book from './Book';
 import AddForm from './AddForm';
 
 function BookList() {
-  const data = [
-    {
-      title: 'The Dark Tower',
-      author: 'Stephen King',
-    },
-  ];
+  const data = useSelector((state) => state.Books);
+
   return (
     <div>
       {data.map((book) => (
-        <Book key={1} title={book.title} author={book.author} />
+        <Book key={book.id} id={book.id} title={book.title} author={book.author} />
       ))}
       <AddForm />
     </div>
