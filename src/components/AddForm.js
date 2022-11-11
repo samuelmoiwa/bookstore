@@ -23,13 +23,15 @@ function AddForm() {
   };
 
   return (
-    <div className="add-book">
-      <h3>Add New Book</h3>
-      <form onSubmit={submitForm}>
-        <input placeholder="Title" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-        <input placeholder="Author" type="text" value={author} onChange={(e) => setAuthor(e.target.value)} />
-        <button type="submit">ADD BOOK</button>
-      </form>
+    <div className="form_section">
+      <div className="add-book">
+        <h3 className="add-book_title">Add New Book</h3>
+        <form onSubmit={submitForm}>
+          <input className="input_title" placeholder="Book title" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+          <input className="input_author" placeholder="Author" type="text" value={author} onChange={(e) => setAuthor(e.target.value)} />
+          <button className="add_book_btn" type="submit">ADD BOOK</button>
+        </form>
+      </div>
     </div>
   );
 }
