@@ -5,7 +5,7 @@ const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstor
 
 const initialState = [];
 
-const getBooksApi = async () => {
+async function getBooksApi() {
   const response = await fetch(URL, {
     method: 'GET',
     headers: {
@@ -21,7 +21,7 @@ const getBooksApi = async () => {
     author: books[id][0].author,
   }));
   return booksData;
-};
+}
 
 export const getBooks = () => (async (dispatch) => {
   const booksData = await getBooksApi();
@@ -31,7 +31,7 @@ export const getBooks = () => (async (dispatch) => {
   });
 });
 
-const addBooksToApi = async (payload) => {
+async function addBooksToApi(payload) {
   const {
     id, title, author, category,
   } = payload;
@@ -48,7 +48,7 @@ const addBooksToApi = async (payload) => {
     },
   });
   (await send.text());
-};
+}
 
 export const addbook = (payload) => (async (dispatch) => {
   const { id, title, author } = payload;
@@ -59,7 +59,7 @@ export const addbook = (payload) => (async (dispatch) => {
   });
 });
 
-const removeBookFromApi = async (id) => {
+async function removeBookFromApi(id) {
   const remove = await fetch(`${URL}/${id}`, {
     method: 'DELETE',
     body: JSON.stringify({
@@ -70,7 +70,7 @@ const removeBookFromApi = async (id) => {
     },
   });
   (await remove.text());
-};
+}
 
 export const removeBook = (id) => (async (dispatch) => {
   await removeBookFromApi(id);
