@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { addbook, getBooks } from './redux/books/books';
 
-function AddForm() {
+const AddForm = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const dispatch = useDispatch();
@@ -34,6 +34,6 @@ function AddForm() {
       </div>
     </div>
   );
-}
+};
 
 export default AddForm;
